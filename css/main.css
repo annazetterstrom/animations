@@ -1,7 +1,7 @@
 body {
   margin: 0;
   height: 100vh;
-  font-family: 'serif';
+  font-family: 'Montserrat', sans-serif;
   overflow: hidden;
 }
 
@@ -20,11 +20,6 @@ section div {
 }
 
 h1 {
-  font-size: 5em;
-  position: absolute;
-  top: 40%;
-  left: 12%;
-  opacity: 0;
-  z-index: 2;
+  font-size: 3em;
 }
 /*# sourceMappingURL=main.css.map */
