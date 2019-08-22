@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About us</title>
+    <style>
+
+        img{
+            height: auto;
+            width: 100px;
+            margin: 20px;
+            z-index: 2;
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+
+<body>
+
+   
+<img src="images/blueberry.png" alt="Icecream">
+<img src="images/vanilla.png" alt="vanilla">
+<img src="images/pear.png" alt="Icecream">
+<img src="images/blue.png" alt="Icecream">
+<img src="images/sorbet.png" alt="sorbet">
+<img src="images/turquoise.png" alt="icecream">
+<img src="images/pear.png" alt="Icecream">
+
+
+
+
+
+    <script src="anime.min.js"></script>
+    <script>
+        let scoops = anime({
+            targets: 'img',
+            translateY: [{
+                    value: 400,
+                    duration: 1000
+                },
+                {
+                    value: 0,
+                    duration: 2000
+                }
+            ],
+            loop: true,
+            rotate: {
+                value: '1turn',
+                easing: 'easeInOutSine',
+            },
+            delay: function (el, i) {
+                return i * 1000
+            },
+            autoplay: true
+
+        });
+
+    anime({
+        targets: '.about-img',
+        translateX: [{
+            value: 100,
+            duartion: 400
+            }
+        ],
+        easing: 'easeInOut'
+    });
+    </script>
+
+
+
+</body>
+
+</html>
