@@ -68,20 +68,17 @@
     
     }
 
-    #div1 {
-      font-size:48px;
-    }
+   
     .fa{
       color:white;
     }
-
 
 
 </style>
 <body>
     <h1 class="moving-letters-main">
         <span class="text-wrapper">
-          <span class="line line1"></span>
+          <span class="line line1"></span>  
           <span class="letters">GELATO</span>
           <span class="line line2"></span>
           <div id="div1" class="fa"></div>
@@ -92,16 +89,16 @@
 
       <div class="icon-wrapper">   
       <div>
-        <a href="#"><i class="fab fa-facebook-square fa-lg"></i></a>
+        <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
       </div>
       <div>
-          <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
+          <a href="#"><i class="fab fa-twitter-square fa-2x"></i></a>
       </div>
       <div>
-          <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
       </div>
       <div>
-          <a href="#"><i class="fab fa-tripadvisor fa-lg"></i></a>
+          <a href="#"><i class="fab fa-tripadvisor fa-2x"></i></a>
       </div>
       <div>
           <a href="#"><i class="fab fa-google fa-lg"></i></a>
@@ -111,6 +108,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
     <script>
+      /*Generating every letter on the screen*/
         var textWrapper = document.querySelector('.moving-letters-main .letters');
         textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x81]|\w)/g, "<span class='letters'>$&</span>");
 
