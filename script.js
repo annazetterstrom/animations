@@ -138,3 +138,43 @@ let scoops = anime({
     autoplay: true
 
 });
+
+
+
+
+var textWrapper = document.querySelector('.moving-letters-main .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x81]|\w)/g, "<span class='letters'>$&</span>");
+
+anime.timeline({loop: false})
+.add({
+targets: '.moving-letters-main .letters',
+scale: [0.3,1],
+opacity: [0,1],
+easing: "easeOutExpo",
+duration: 800,
+delay: function(el, i) {
+return 70 * (i+1)
+}
+
+}).add({
+targets: '.moving-letters-main .line',
+scaleX: [0,1],
+opacity: [0.5,1],
+easing: "easeOutExpo",
+duration: 700,
+/*offset: '-=875',*/
+delay: function(el, i, l) {
+return 80 * (l - i);
+}
+})
+
+anime.timeline({loop: false})
+.add({
+targets: '.icon-wrapper',
+scale: [0.3,1],
+opacity: [0,1],
+easing: "easeOutExpo",
+duration: 600,
+delay: 1500,
+
+})
