@@ -140,41 +140,71 @@ let scoops = anime({
 });
 
 
-
-
 var textWrapper = document.querySelector('.moving-letters-main .letters');
 textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x81]|\w)/g, "<span class='letters'>$&</span>");
 
-anime.timeline({loop: false})
-.add({
-targets: '.moving-letters-main .letters',
-scale: [0.3,1],
-opacity: [0,1],
-easing: "easeOutExpo",
-duration: 800,
-delay: function(el, i) {
-return 70 * (i+1)
+function textAnimation(){
+    anime.timeline({loop: false})
+    .add({
+    targets: '.moving-letters-main .letters',
+    scale: [0.3,1],
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 800,
+    delay: function(el, i) {
+    return 70 * (i+1)
+    }
+    
+    }).add({
+    targets: '.moving-letters-main .line',
+    scaleX: [0,1],
+    loop: 'false',
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700,
+    /*offset: '-=875',*/
+    delay: 100,
+    })
+    iconAnimation();
+    
 }
 
-}).add({
-targets: '.moving-letters-main .line',
-scaleX: [0,1],
-opacity: [0.5,1],
-easing: "easeOutExpo",
-duration: 700,
-/*offset: '-=875',*/
-delay: function(el, i, l) {
-return 80 * (l - i);
+function iconAnimation(){
+    anime.timeline({})
+    .add({
+    targets: '.icon-wrapper',
+    scale: [0.3,1],
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 600,
+    delay: 1500,
+    
+    })
 }
-})
 
-anime.timeline({loop: false})
-.add({
-targets: '.icon-wrapper',
-scale: [0.3,1],
-opacity: [0,1],
-easing: "easeOutExpo",
-duration: 600,
-delay: 1500,
 
-})
+function checkForFooter() {
+    var footer1 = document.querySelectorAll(".footers");
+    footer1.forEach(function(footers) {
+        if (isElementInViewport(footers)) {
+            textAnimation();
+      } 
+    });
+  }
+  
+  function isElementInViewport (el) {
+    var rect = el.getBoundingClientRect();
+  
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth) 
+    );
+  }
+  
+  if (window.addEventListener) {
+    addEventListener('DOMContentLoaded', checkForFooter, false); 
+    addEventListener('load', checkForFooter, false);
+    addEventListener('scroll', checkForFooter, false);
+  }

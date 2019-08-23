@@ -162,6 +162,8 @@ img {
   font-weight: 900;
   font-size: 5.5em;
   margin:0;
+  opacity:0;
+  
 }
 
 .moving-letters-main .letters {
@@ -207,6 +209,17 @@ img {
 .fa{
   color:white;
 }
+
+.footers {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1.2s ease-out;
+  }
+  
+  .footerVisible {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
 @-webkit-keyframes gradientAnimation {
     0% {
